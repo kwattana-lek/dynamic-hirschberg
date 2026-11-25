@@ -19,11 +19,11 @@ In every video frame, DH measures the **signed horizontal displacement between t
 ```bash
 python src/generate_synthetic_v2.py                    # data/synthetic_v2/synthetic_v2.npz (1500 sequences)
 cd experiments/v2
-python run_synthetic_v2.py                             # Tables 4-8: models, baselines, ablation, robustness, gate sensitivity
+python run_synthetic_v2.py                             # Tables 3-7: models, baselines, ablation, robustness, gate sensitivity
 python make_figures_v2.py                              # Figures 2-5 and pooled per-class metrics
 export DH_VIDEO_DIR=/path/to/videos                    # Dreamstime clips (not redistributed): Normal/ and Strabismus/
 python verify_measurement.py                           # injected-reflex and mirror tests
-python measure_videos.py                               # per-frame signed measurement, jitter estimate, rescaling test
+python measure_videos.py                               # Tables 2 and 8: per-frame measurement, jitter estimate, rescaling test
 DH_MIN_JOINT=0.7 DH_MAX_GAP=15 python classify_real_v2.py   # quality gate + classification of real windows
 ```
 
