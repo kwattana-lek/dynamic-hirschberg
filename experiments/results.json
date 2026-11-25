@@ -1,0 +1,1398 @@
+{
+  "split": {
+    "n_total": 600,
+    "n_train": 420,
+    "n_val": 90,
+    "n_test": 90,
+    "test_per_class": {
+      "Healthy": 30,
+      "Intermittent": 30,
+      "Constant": 30
+    },
+    "duplicate_sequences": 0
+  },
+  "env": {
+    "python": "3.11.18",
+    "tensorflow": "2.16.2",
+    "machine": "macOS-27.2-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "training": {
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "batch": 32,
+    "max_epochs": 100,
+    "early_stopping": "val_loss, patience 10, restore best"
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "architectures": {
+    "CNN-BiLSTM": {
+      "params": 70979,
+      "latency_ms": 61.03552000000491,
+      "accuracy": [
+        0.9977777777777778,
+        0.004969039949999515
+      ],
+      "macro_f1": [
+        0.9977771603223118,
+        0.004970420622394622
+      ],
+      "weighted_f1": [
+        0.9977771603223118,
+        0.004970420622394622
+      ],
+      "val_acc": [
+        0.9911111111111112,
+        0.00929622251704529
+      ],
+      "epochs_run": [
+        53.8,
+        31.483328921827816
+      ],
+      "best_epoch": [
+        43.8,
+        31.483328921827816
+      ],
+      "runs": [
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 43,
+          "best_epoch": 33,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 0.9888888888888889,
+          "macro_f1": 0.9888858016115588,
+          "weighted_f1": 0.9888858016115588,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 0.967741935483871,
+              "recall": 1.0,
+              "f1": 0.9836065573770492,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 0.9666666666666667,
+              "f1": 0.9830508474576272,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              1,
+              29
+            ]
+          ],
+          "epochs_run": 26,
+          "best_epoch": 16,
+          "val_acc": 1.0
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 94,
+          "best_epoch": 84,
+          "val_acc": 1.0
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 26,
+          "best_epoch": 16,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 80,
+          "best_epoch": 70,
+          "val_acc": 0.9888888888888889
+        }
+      ]
+    },
+    "CNN-only": {
+      "params": 23427,
+      "latency_ms": 1.1656418749771547,
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "val_acc": [
+        0.9844444444444445,
+        0.006085806194501884
+      ],
+      "epochs_run": [
+        84.6,
+        7.700649323271382
+      ],
+      "best_epoch": [
+        74.6,
+        7.700649323271382
+      ],
+      "runs": [
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 84,
+          "best_epoch": 74,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 81,
+          "best_epoch": 71,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 79,
+          "best_epoch": 69,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 81,
+          "best_epoch": 71,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 98,
+          "best_epoch": 88,
+          "val_acc": 0.9888888888888889
+        }
+      ]
+    },
+    "BiLSTM-only": {
+      "params": 38531,
+      "latency_ms": 121.49615645495942,
+      "accuracy": [
+        0.9933333333333334,
+        0.009938079899999073
+      ],
+      "macro_f1": [
+        0.9933277721131905,
+        0.00994809864794168
+      ],
+      "weighted_f1": [
+        0.9933277721131905,
+        0.00994809864794168
+      ],
+      "val_acc": [
+        0.9755555555555555,
+        0.0049690399499995146
+      ],
+      "epochs_run": [
+        26.4,
+        4.929503017546495
+      ],
+      "best_epoch": [
+        16.4,
+        4.929503017546495
+      ],
+      "runs": [
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 31,
+          "best_epoch": 21,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 0.9888888888888889,
+          "macro_f1": 0.9888858016115588,
+          "weighted_f1": 0.9888858016115588,
+          "per_class": {
+            "Healthy": {
+              "precision": 0.967741935483871,
+              "recall": 1.0,
+              "f1": 0.9836065573770492,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 0.9666666666666667,
+              "f1": 0.9830508474576272,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              1,
+              29,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 24,
+          "best_epoch": 14,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 28,
+          "best_epoch": 18,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 30,
+          "best_epoch": 20,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 0.9777777777777777,
+          "macro_f1": 0.9777530589543938,
+          "weighted_f1": 0.9777530589543938,
+          "per_class": {
+            "Healthy": {
+              "precision": 0.9375,
+              "recall": 1.0,
+              "f1": 0.967741935483871,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 0.9333333333333333,
+              "f1": 0.9655172413793104,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              2,
+              28,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 19,
+          "best_epoch": 9,
+          "val_acc": 0.9666666666666667
+        }
+      ]
+    },
+    "CNN-Transformer": {
+      "params": 41027,
+      "latency_ms": 4.074413330090465,
+      "accuracy": [
+        0.9822222222222223,
+        0.02557969874049187
+      ],
+      "macro_f1": [
+        0.9821615466969666,
+        0.025673574589764343
+      ],
+      "weighted_f1": [
+        0.9821615466969668,
+        0.025673574589764287
+      ],
+      "val_acc": [
+        0.9822222222222223,
+        0.009938079899999086
+      ],
+      "epochs_run": [
+        37.0,
+        17.86057109949175
+      ],
+      "best_epoch": [
+        27.0,
+        17.86057109949175
+      ],
+      "runs": [
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 57,
+          "best_epoch": 47,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 0.9444444444444444,
+          "macro_f1": 0.9442246090069718,
+          "weighted_f1": 0.9442246090069719,
+          "per_class": {
+            "Healthy": {
+              "precision": 0.967741935483871,
+              "recall": 1.0,
+              "f1": 0.9836065573770492,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 0.9032258064516129,
+              "recall": 0.9333333333333333,
+              "f1": 0.9180327868852459,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 0.9642857142857143,
+              "recall": 0.9,
+              "f1": 0.9310344827586207,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              1,
+              28,
+              1
+            ],
+            [
+              0,
+              3,
+              27
+            ]
+          ],
+          "epochs_run": 18,
+          "best_epoch": 8,
+          "val_acc": 0.9777777777777777
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 52,
+          "best_epoch": 42,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 38,
+          "best_epoch": 28,
+          "val_acc": 0.9888888888888889
+        },
+        {
+          "accuracy": 0.9666666666666667,
+          "macro_f1": 0.9665831244778612,
+          "weighted_f1": 0.9665831244778613,
+          "per_class": {
+            "Healthy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 30
+            },
+            "Intermittent": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "f1": 0.9473684210526315,
+              "support": 30
+            },
+            "Constant": {
+              "precision": 0.9090909090909091,
+              "recall": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 30
+            }
+          },
+          "confusion": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              27,
+              3
+            ],
+            [
+              0,
+              0,
+              30
+            ]
+          ],
+          "epochs_run": 20,
+          "best_epoch": 10,
+          "val_acc": 0.9666666666666667
+        }
+      ]
+    }
+  },
+  "baselines": {
+    "Single frame (t=75) + LogReg": {
+      "accuracy": [
+        0.5111111111111111,
+        0.0
+      ],
+      "macro_f1": [
+        0.5218702865761689,
+        0.0
+      ],
+      "weighted_f1": [
+        0.5218702865761689,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 0.5666666666666667,
+        "Intermittent": 0.5,
+        "Constant": 0.4666666666666667
+      }
+    },
+    "Single frame (t=75) + SVM": {
+      "accuracy": [
+        0.7555555555555555,
+        0.0
+      ],
+      "macro_f1": [
+        0.7216931216931216,
+        0.0
+      ],
+      "weighted_f1": [
+        0.7216931216931216,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 0.3333333333333333,
+        "Constant": 0.9333333333333333
+      }
+    },
+    "Single frame (t=75) + RF": {
+      "accuracy": [
+        0.6977777777777778,
+        0.00929622251704529
+      ],
+      "macro_f1": [
+        0.6876915675428024,
+        0.008463096433933134
+      ],
+      "weighted_f1": [
+        0.6876915675428024,
+        0.008463096433933094
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 0.6666666666666666,
+        "Intermittent": 0.5,
+        "Constant": 0.9333333333333333
+      }
+    },
+    "Sequence mean/SD + LogReg": {
+      "accuracy": [
+        0.7444444444444445,
+        0.0
+      ],
+      "macro_f1": [
+        0.7284171639670362,
+        0.0
+      ],
+      "weighted_f1": [
+        0.728417163967036,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 0.7666666666666667,
+        "Constant": 0.4666666666666667
+      }
+    },
+    "Sequence mean/SD + SVM": {
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 1.0,
+        "Constant": 1.0
+      }
+    },
+    "Sequence mean/SD + RF": {
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 1.0,
+        "Constant": 1.0
+      }
+    },
+    "Handcrafted temporal + LogReg": {
+      "accuracy": [
+        0.8777777777777779,
+        1.2412670766236366e-16
+      ],
+      "macro_f1": [
+        0.876923076923077,
+        0.0
+      ],
+      "weighted_f1": [
+        0.876923076923077,
+        1.2412670766236366e-16
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 0.9,
+        "Intermittent": 1.0,
+        "Constant": 0.7333333333333333
+      }
+    },
+    "Handcrafted temporal + SVM": {
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 1.0,
+        "Constant": 1.0
+      }
+    },
+    "Handcrafted temporal + RF": {
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "per_class_recall_seed0": {
+        "Healthy": 1.0,
+        "Intermittent": 1.0,
+        "Constant": 1.0
+      }
+    }
+  },
+  "ablation": {
+    "Affected eye only (L)": {
+      "channels": 1,
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ]
+    },
+    "Both eyes (L, R) [default]": {
+      "channels": 2,
+      "accuracy": [
+        0.9977777777777778,
+        0.004969039949999515
+      ],
+      "weighted_f1": [
+        0.9977771603223118,
+        0.004970420622394622
+      ],
+      "macro_f1": [
+        0.9977771603223118,
+        0.004970420622394622
+      ]
+    },
+    "Both eyes + 1st/2nd differences": {
+      "channels": 6,
+      "accuracy": [
+        1.0,
+        0.0
+      ],
+      "weighted_f1": [
+        1.0,
+        0.0
+      ],
+      "macro_f1": [
+        1.0,
+        0.0
+      ]
+    }
+  },
+  "robustness": {
+    "jitter sigma=0.001": {
+      "CNN-BiLSTM": [
+        0.99933331666625,
+        0.0014907492537311697
+      ],
+      "CNN-Transformer": [
+        1.0,
+        0.0
+      ],
+      "Handcrafted temporal + RF": [
+        1.0,
+        0.0
+      ]
+    },
+    "jitter sigma=0.005": {
+      "CNN-BiLSTM": [
+        1.0,
+        0.0
+      ],
+      "CNN-Transformer": [
+        1.0,
+        0.0
+      ],
+      "Handcrafted temporal + RF": [
+        1.0,
+        0.0
+      ]
+    },
+    "jitter sigma=0.01": {
+      "CNN-BiLSTM": [
+        1.0,
+        0.0
+      ],
+      "CNN-Transformer": [
+        1.0,
+        0.0
+      ],
+      "Handcrafted temporal + RF": [
+        1.0,
+        0.0
+      ]
+    },
+    "jitter sigma=0.02": {
+      "CNN-BiLSTM": [
+        0.9959998494911868,
+        0.0036516787442754774
+      ],
+      "CNN-Transformer": [
+        0.9879935953262416,
+        0.006062780251987067
+      ],
+      "Handcrafted temporal + RF": [
+        0.9598554797270173,
+        0.0
+      ]
+    },
+    "jitter sigma=0.05": {
+      "CNN-BiLSTM": [
+        0.949655687679939,
+        0.006719506422232371
+      ],
+      "CNN-Transformer": [
+        0.8138728165869253,
+        0.017047264043574775
+      ],
+      "Handcrafted temporal + RF": [
+        0.5555555555555555,
+        0.0
+      ]
+    },
+    "jitter sigma=0.1": {
+      "CNN-BiLSTM": [
+        0.5608599018108784,
+        0.011834444071923732
+      ],
+      "CNN-Transformer": [
+        0.5547091743068381,
+        0.0018925660070131848
+      ],
+      "Handcrafted temporal + RF": [
+        0.5465402177730945,
+        0.0
+      ]
+    },
+    "heavy blinks (0-6 per clip)": {
+      "CNN-BiLSTM": [
+        0.9946695853518644,
+        0.0037923363755773564
+      ],
+      "CNN-Transformer": [
+        0.9966664833187486,
+        0.0023572583337662183
+      ],
+      "Handcrafted temporal + RF": [
+        0.9833287234948878,
+        0.0
+      ]
+    },
+    "low amplitude (Int 0.03-0.08, Const 0.04-0.10)": {
+      "CNN-BiLSTM": [
+        0.6160717361049538,
+        0.013449745909009277
+      ],
+      "CNN-Transformer": [
+        0.7455968398404881,
+        0.023920146262038887
+      ],
+      "Handcrafted temporal + RF": [
+        0.7345616541957153,
+        0.0
+      ]
+    }
+  },
+  "tsne": {
+    "n_points": 90,
+    "perplexity": 20,
+    "seed": 42,
+    "layer": "Dense(32) 'latent'",
+    "constant_positive": 14,
+    "constant_negative": 16
+  }
+}

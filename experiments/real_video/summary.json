@@ -1,0 +1,45 @@
+{
+  "model_test_acc_synthetic": 1.0,
+  "n_videos": 13,
+  "n_windows": 28,
+  "by_group": {
+    "Normal": {
+      "videos": 7,
+      "windows": 11,
+      "face_detected_pct_median": 100.0,
+      "valid_both_pct_median_200": 0.0,
+      "valid_both_pct_range_200": [
+        0.0,
+        0.0
+      ],
+      "valid_both_pct_median_180": 0.0,
+      "valid_both_pct_median_220": 0.0,
+      "iris_diam_px_median": 15.0,
+      "pred_distribution": {
+        "Healthy": 11
+      },
+      "window_median_r_eye1": NaN,
+      "window_median_r_eye2": NaN
+    },
+    "Strabismus": {
+      "videos": 6,
+      "windows": 17,
+      "face_detected_pct_median": 100.0,
+      "valid_both_pct_median_200": 0.2601456815816858,
+      "valid_both_pct_range_200": [
+        0.0,
+        69.5740365111562
+      ],
+      "valid_both_pct_median_180": 6.41622252623906,
+      "valid_both_pct_median_220": 0.0,
+      "iris_diam_px_median": 22.0,
+      "pred_distribution": {
+        "Healthy": 7,
+        "Constant": 6,
+        "Intermittent": 4
+      },
+      "window_median_r_eye1": 0.17874249815940857,
+      "window_median_r_eye2": 0.17339495569467545
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "confusion_pooled": [
+    [
+      150,
+      0,
+      0
+    ],
+    [
+      0,
+      150,
+      0
+    ],
+    [
+      0,
+      1,
+      149
+    ]
+  ],
+  "Healthy": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 150
+  },
+  "Intermittent": {
+    "precision": 0.9933774834437086,
+    "recall": 1.0,
+    "f1": 0.9966777408637874,
+    "support": 150
+  },
+  "Constant": {
+    "precision": 1.0,
+    "recall": 0.9933333333333333,
+    "f1": 0.9966555183946488,
+    "support": 150
+  }
+}
