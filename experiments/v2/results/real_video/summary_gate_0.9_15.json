@@ -1,0 +1,85 @@
+{
+  "gate": {
+    "min_joint": 0.9,
+    "max_gap": 15
+  },
+  "windows": 28,
+  "accepted": 4,
+  "by_group": {
+    "Normal": {
+      "windows": 11,
+      "accepted": 0,
+      "accepted_clips": [],
+      "reasons_rejected": {
+        "joint valid # < #": 11
+      },
+      "CNN-BiLSTM_ungated_on_rejected": {
+        "Constant": 11
+      }
+    },
+    "Strabismus": {
+      "windows": 17,
+      "accepted": 4,
+      "accepted_clips": [
+        "252652595"
+      ],
+      "reasons_rejected": {
+        "joint valid # < #": 13
+      },
+      "CNN-BiLSTM_ungated_on_rejected": {
+        "Constant": 7,
+        "Intermittent": 6
+      }
+    }
+  },
+  "accepted_windows": [
+    {
+      "group": "Strabismus",
+      "clip_id": "252652595",
+      "window": 2,
+      "joint_valid_pct": 90.0,
+      "longest_gap": 3,
+      "binocular_index_median": -0.23591341078281403,
+      "CNN-BiLSTM_pred": "Constant",
+      "CNN-only_pred": "Constant",
+      "BiLSTM-only_pred": "Intermittent",
+      "CNN-Transformer_pred": "Constant"
+    },
+    {
+      "group": "Strabismus",
+      "clip_id": "252652595",
+      "window": 3,
+      "joint_valid_pct": 100.0,
+      "longest_gap": 0,
+      "binocular_index_median": -0.21649298071861267,
+      "CNN-BiLSTM_pred": "Constant",
+      "CNN-only_pred": "Constant",
+      "BiLSTM-only_pred": "Constant",
+      "CNN-Transformer_pred": "Constant"
+    },
+    {
+      "group": "Strabismus",
+      "clip_id": "252652595",
+      "window": 4,
+      "joint_valid_pct": 98.66666666666667,
+      "longest_gap": 2,
+      "binocular_index_median": -0.2811588644981384,
+      "CNN-BiLSTM_pred": "Constant",
+      "CNN-only_pred": "Constant",
+      "BiLSTM-only_pred": "Constant",
+      "CNN-Transformer_pred": "Constant"
+    },
+    {
+      "group": "Strabismus",
+      "clip_id": "252652595",
+      "window": 5,
+      "joint_valid_pct": 100.0,
+      "longest_gap": 0,
+      "binocular_index_median": -0.1856711357831955,
+      "CNN-BiLSTM_pred": "Constant",
+      "CNN-only_pred": "Constant",
+      "BiLSTM-only_pred": "Constant",
+      "CNN-Transformer_pred": "Constant"
+    }
+  ]
+}

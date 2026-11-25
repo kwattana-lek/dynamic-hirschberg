@@ -3,9 +3,35 @@
 Code and data for the manuscript:
 
 > Suwannarat K., Kurdthongmee W., Phetkaew T., Wattanapanich C., Abd Aziz A.Z., Kurdthongmee P.
-> *Dynamic Hirschberg: Calibration-Free Camera-Based Temporal Sensing of Ocular Alignment Using a CNN–BiLSTM Framework.* Submitted to *Sensors* (MDPI), 2026.
+> *Dynamic Hirschberg: Camera-Based Temporal Sensing of Ocular Alignment Without Per-User Calibration.* Submitted to *Sensors* (MDPI), 2026.
 
-DH tracks the distance between the pupil center and the corneal reflex (glint) of both eyes over a 5-s video. It divides that distance by the iris diameter, so no per-user calibration is needed, and classifies the 150-frame trajectory as **Healthy**, **Intermittent** or **Constant** deviation with a compact CNN–BiLSTM.
+In every video frame, DH measures the **signed horizontal displacement between the pupil centre and the corneal reflex** of each eye. The displacement is divided by the iris diameter, so no per-user calibration is needed. Failed frames are recorded in explicit **validity masks** rather than set to zero. A **quality gate** outputs "cannot assess" when too little of a window is valid. Accepted 5-s windows are classified as Healthy, Intermittent or Constant deviation.
+
+## Versions
+
+- **`v2` is the version used in the current manuscript.** It is in `src/dh_measure.py`, `src/generate_synthetic_v2.py` and `experiments/v2/`.
+- `v1` is kept for transparency. It is in `src/generate_synthetic_dataset.py`, `src/dh_video_inference.py`, `experiments/*.py` and `data/synthetic_dataset_robust/`.
+  - It used an **unsigned** distance and encoded failed frames as zeros.
+  - Its results are superseded.
+
+### v2 quick start
+
+```bash
+python src/generate_synthetic_v2.py                    # data/synthetic_v2/synthetic_v2.npz (1500 sequences)
+cd experiments/v2
+python run_synthetic_v2.py                             # Tables 4-8: models, baselines, ablation, robustness, gate sensitivity
+python make_figures_v2.py                              # Figures 2-5 and pooled per-class metrics
+export DH_VIDEO_DIR=/path/to/videos                    # Dreamstime clips (not redistributed): Normal/ and Strabismus/
+python verify_measurement.py                           # injected-reflex and mirror tests
+python measure_videos.py                               # per-frame signed measurement, jitter estimate, rescaling test
+DH_MIN_JOINT=0.7 DH_MAX_GAP=15 python classify_real_v2.py   # quality gate + classification of real windows
+```
+
+All numbers in the manuscript are in `experiments/v2/results/`:
+- `synthetic_v2.json`
+- `pooled_per_class.json`
+- `measurement_verification.json`
+- `real_video/`
 
 **This is a research prototype. It is not a clinically validated diagnostic tool.**
 
