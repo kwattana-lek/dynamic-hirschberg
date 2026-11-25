@@ -1,0 +1,13 @@
+{
+  "frames": 600,
+  "resolution": [
+    580,
+    326
+  ],
+  "decode_ms_per_frame": 0.17440652833708253,
+  "mediapipe_ms_per_frame": 1.7947509823231182,
+  "reflex_measure_ms_per_frame": 0.22835131467824493,
+  "measurement_ms_per_frame_total": 2.1975088253384456,
+  "classifier_ms_per_window": 0.11589763666658351,
+  "end_to_end_ms_per_5s_window": 329.74222143743344
+}

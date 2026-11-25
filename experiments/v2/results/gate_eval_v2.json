@@ -1,0 +1,264 @@
+{
+  "test_set": {
+    "n": 600,
+    "seed": 7100,
+    "drop": [
+      0.0,
+      0.5
+    ],
+    "burst_p": 0.5,
+    "blinks": [
+      0,
+      4
+    ],
+    "joint_valid_pct_median": 45.33333480358124,
+    "joint_valid_pct_quartiles": [
+      36.000001430511475,
+      55.50000071525574
+    ]
+  },
+  "reproduction_agreement": {
+    "CNN-only": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "CNN-BiLSTM": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "min_joint": null,
+      "max_gap": null,
+      "n_total": 600,
+      "n_accepted": 600,
+      "n_rejected": 0,
+      "coverage_pct": 100.0,
+      "accepted_per_class": {
+        "Healthy": 200,
+        "Intermittent": 200,
+        "Constant": 200
+      },
+      "small_class_flag": false,
+      "CNN-only": {
+        "f1_accepted": [
+          0.8566381134152236,
+          0.011803080062999804
+        ],
+        "f1_rejected": null
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          0.8441887084123607,
+          0.05874496565466047
+        ],
+        "f1_rejected": null
+      }
+    },
+    {
+      "min_joint": 0.5,
+      "max_gap": 15,
+      "n_total": 600,
+      "n_accepted": 151,
+      "n_rejected": 449,
+      "coverage_pct": 25.166666666666664,
+      "accepted_per_class": {
+        "Healthy": 43,
+        "Intermittent": 52,
+        "Constant": 56
+      },
+      "small_class_flag": false,
+      "CNN-only": {
+        "f1_accepted": [
+          0.9071909382146611,
+          0.021211544818792068
+        ],
+        "f1_rejected": [
+          0.839186107391072,
+          0.009474463165857889
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          0.9137836648061279,
+          0.02909871784022403
+        ],
+        "f1_rejected": [
+          0.819506726964091,
+          0.07279184497866485
+        ]
+      }
+    },
+    {
+      "min_joint": 0.6,
+      "max_gap": 15,
+      "n_total": 600,
+      "n_accepted": 77,
+      "n_rejected": 523,
+      "coverage_pct": 12.833333333333332,
+      "accepted_per_class": {
+        "Healthy": 21,
+        "Intermittent": 23,
+        "Constant": 33
+      },
+      "small_class_flag": false,
+      "CNN-only": {
+        "f1_accepted": [
+          0.9358485827744467,
+          0.011853114171809806
+        ],
+        "f1_rejected": [
+          0.8449716982300517,
+          0.011874701665898603
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          0.9472205975212746,
+          0.03395509787932136
+        ],
+        "f1_rejected": [
+          0.8285536972353474,
+          0.0653611046189623
+        ]
+      }
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 15,
+      "n_total": 600,
+      "n_accepted": 36,
+      "n_rejected": 564,
+      "coverage_pct": 6.0,
+      "accepted_per_class": {
+        "Healthy": 12,
+        "Intermittent": 9,
+        "Constant": 15
+      },
+      "small_class_flag": true,
+      "CNN-only": {
+        "f1_accepted": [
+          0.9944597701149427,
+          0.012388330633964346
+        ],
+        "f1_rejected": [
+          0.8476566562832868,
+          0.01313821423073651
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          0.9833174917917387,
+          0.024897702879392695
+        ],
+        "f1_rejected": [
+          0.8351707467779761,
+          0.06191542328401803
+        ]
+      }
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 30,
+      "n_total": 600,
+      "n_accepted": 44,
+      "n_rejected": 556,
+      "coverage_pct": 7.333333333333333,
+      "accepted_per_class": {
+        "Healthy": 14,
+        "Intermittent": 13,
+        "Constant": 17
+      },
+      "small_class_flag": false,
+      "CNN-only": {
+        "f1_accepted": [
+          0.9954640448370856,
+          0.010142704087167697
+        ],
+        "f1_rejected": [
+          0.8452546915366627,
+          0.013386804531489712
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          0.9863538957269367,
+          0.020360266710381027
+        ],
+        "f1_rejected": [
+          0.8325991938873676,
+          0.06299157686308224
+        ]
+      }
+    },
+    {
+      "min_joint": 0.8,
+      "max_gap": 15,
+      "n_total": 600,
+      "n_accepted": 5,
+      "n_rejected": 595,
+      "coverage_pct": 0.8333333333333334,
+      "accepted_per_class": {
+        "Healthy": 2,
+        "Intermittent": 2,
+        "Constant": 1
+      },
+      "small_class_flag": true,
+      "CNN-only": {
+        "f1_accepted": [
+          1.0,
+          0.0
+        ],
+        "f1_rejected": [
+          0.8553670088395936,
+          0.011924988465914018
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": [
+          1.0,
+          0.0
+        ],
+        "f1_rejected": [
+          0.8428222395913647,
+          0.05929547764467421
+        ]
+      }
+    },
+    {
+      "min_joint": 0.9,
+      "max_gap": 15,
+      "n_total": 600,
+      "n_accepted": 0,
+      "n_rejected": 600,
+      "coverage_pct": 0.0,
+      "accepted_per_class": {
+        "Healthy": 0,
+        "Intermittent": 0,
+        "Constant": 0
+      },
+      "small_class_flag": false,
+      "CNN-only": {
+        "f1_accepted": null,
+        "f1_rejected": [
+          0.8566381134152236,
+          0.011803080062999804
+        ]
+      },
+      "CNN-BiLSTM": {
+        "f1_accepted": null,
+        "f1_rejected": [
+          0.8441887084123607,
+          0.05874496565466047
+        ]
+      }
+    }
+  ]
+}
