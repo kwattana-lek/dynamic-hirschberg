@@ -24,7 +24,7 @@ fig.tight_layout(); fig.savefig(os.path.join(F, "confusion_cnn_only_pooled.png")
 fig, ax = plt.subplots(figsize=(13, 4.2)); ax.set_xlim(0, 13); ax.set_ylim(0, 4.2); ax.axis("off")
 def box(x, y, w, h, t, c): ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02", fc=c, ec="k", lw=1.1)); ax.text(x + w/2, y + h/2, t, ha="center", va="center", fontsize=8.5)
 def arr(x1, y1, x2, y2): ax.annotate("", (x2, y2), (x1, y1), arrowprops=dict(arrowstyle="->", lw=1.1))
-box(0.1, 1.6, 1.7, 1.0, "Input 150 × 4\nu1, u2,\nmask1, mask2", "#f2f2f2")
+box(0.1, 1.6, 1.7, 1.0, "Input 300 × 4\nu1, u2,\nmask1, mask2", "#f2f2f2")
 box(2.2, 1.6, 2.2, 1.0, "Conv1D 64, k = 5, ReLU\nMaxPool 2, Dropout 0.3\n(shared front end)", "#cfe2f3")
 heads = [("Bidirectional LSTM\n64 units/direction\n→ 128  [CNN–BiLSTM, 71,619]", "#fff2cc", 3.2),
          ("Conv1D 64, k = 5 + global\naverage pooling\n[CNN-only, 24,067]", "#d9ead3", 1.95),
@@ -39,9 +39,11 @@ fig.tight_layout(); fig.savefig(os.path.join(F, "figure3_architectures.png"), dp
 
 # Figure: real signals of the accepted windows
 rv = os.path.join(R, "real_video"); fig, ax = plt.subplots(1, 2, figsize=(11, 3.3), sharey=True)
-for a, (g, clip, w, title) in zip(ax, [("Strabismus", "252652595", 3, "Strabismus 6, window 4 (accepted)"),
-                                       ("Strabismus", "124197414", 1, "Strabismus 1, window 2 (accepted)")]):
-    df = pd.read_csv(os.path.join(rv, f"{g}_{clip}_signal.csv")).iloc[w*150:(w+1)*150]; t = np.arange(150) / 30
+W = 300                                                       # 10-s windows at 30 frames/s
+PANELS = [("Strabismus", "252652595", 1, "Strabismus 6, window 2 (accepted)"),
+          ("Strabismus", "124197414", 0, "Strabismus 1, window 1 (cannot assess: 54% jointly valid)")]
+for a, (g, clip, w, title) in zip(ax, PANELS):
+    df = pd.read_csv(os.path.join(rv, f"{g}_{clip}_signal.csv")).iloc[w*W:(w+1)*W]; t = np.arange(len(df)) / 30
     v1, v2 = df.eye1_valid.values > 0, df.eye2_valid.values > 0
     a.plot(t, np.where(v1, df.eye1_u, np.nan), "-", lw=1.3, label="Eye 1, $u_1$")
     a.plot(t, np.where(v2, df.eye2_u, np.nan), "--", lw=1.3, label="Eye 2, $u_2$")

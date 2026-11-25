@@ -1,34 +1,40 @@
 """
 Synthetic temporal sequence generator, version 2 (STSG-v2).
 
-Each sequence: T = 150 frames (5 s at 30 fps), two eyes, signed temporal-convention displacement u
+Each sequence: T = 300 frames (10 s at 30 fps; the 5-s version is archived in experiments/v2/results_5s/), two eyes, signed temporal-convention displacement u
 (src/dh_measure.py) plus a validity mask per eye. Invalid frames have u = 0 AND mask = 0; models
 receive the mask, so a missing observation is never presented as a genuine zero.
 
 Components (all in iris-diameter units):
   kappa_e      per-eye baseline offset (angle kappa), U(-0.01, 0.05)
-  c_t          conjugate gaze: piecewise-constant horizontal gaze level in U(-g, g) with 0-3 shifts
+  Event counts are specified per 5 s and summed over the two 5-s blocks of a window.
+  c_t          conjugate gaze: piecewise-constant horizontal gaze level in U(-g, g) with 0-3 shifts per 5 s
                (3-frame transitions) plus slow head drift; enters the eyes with OPPOSITE signs
                (+c for eye 1, -c for eye 2) because u is expressed in each eye's temporal direction
   dev_t        deviation of the affected eye (randomly eye 1 or 2), sign + (exo) or - (eso) at random
      Healthy:      none
      Constant:     A ~ U(0.08, 0.25) throughout, with a small slow wobble
-     Intermittent: 1-2 trapezoidal episodes (onset 5-30, plateau 15-75, recovery 5-30 frames), amplitude
+     Intermittent: 1-2 trapezoidal episodes per 5 s (onset 5-30, plateau 15-75, recovery 5-30 frames), amplitude
                    A ~ U(0.08, 0.20); episodes may start before or end after the window (truncated) and
                    may recover inside it; at least 20 aligned and 20 deviated frames inside the window
   noise        Gaussian, sigma ~ U(0.005, 0.02) per sequence (range of the frame-to-frame noise measured on
                the real clips with valid signals: 0.005-0.018)
-  missing      0-3 blinks (both eyes, 3-10 frames), per-eye random dropout with rate U(0, 0.10), and with
-               probability 0.3 one dropout burst of 5-20 frames per eye
+  missing      0-3 blinks per 5 s (both eyes, 3-10 frames), per-eye random dropout with rate U(0, 0.10), and with
+               probability 0.3 per 5 s one dropout burst of 5-20 frames per eye
 Intermittent and Constant amplitudes overlap; the classes differ in temporal structure, not amplitude.
 """
 import numpy as np
 
-T = 150
+T = 300
+BLOCKS = T // 150                     # number of 5-s blocks; event counts are drawn per block
 CLASSES = ["Healthy", "Intermittent", "Constant"]
 
 DEFAULT = dict(sigma=(0.005, 0.02), gaze=0.15, n_gaze_shifts=(0, 3), drop=(0.0, 0.10), burst_p=0.3,
                blinks=(0, 3), amp_int=(0.08, 0.20), amp_const=(0.08, 0.25), kappa=(-0.01, 0.05))
+
+
+def _per_block(rng, lo, hi):
+    return int(sum(rng.integers(lo, hi + 1) for _ in range(BLOCKS)))
 
 
 def _trapezoid(start, up, plat, down):
@@ -43,8 +49,8 @@ def _trapezoid(start, up, plat, down):
 def _intermittent(rng, amp):
     for _ in range(1000):
         env = np.zeros(T)
-        for _ in range(rng.integers(1, 3)):
-            env = np.maximum(env, _trapezoid(rng.integers(-40, 141), rng.integers(5, 31),
+        for _ in range(_per_block(rng, 1, 2)):
+            env = np.maximum(env, _trapezoid(rng.integers(-40, T - 9), rng.integers(5, 31),
                                              rng.integers(15, 76), rng.integers(5, 31)))
         if (env < 0.1).sum() >= 20 and (env > 0.5).sum() >= 20:
             return amp * env
@@ -53,10 +59,10 @@ def _intermittent(rng, amp):
 
 def _gaze(rng, g, shifts):
     lev = rng.uniform(-g, g); c = np.full(T, lev)
-    for t0 in np.sort(rng.integers(5, T - 5, rng.integers(shifts[0], shifts[1] + 1))):
+    for t0 in np.sort(rng.integers(5, T - 5, _per_block(rng, shifts[0], shifts[1]))):
         new = rng.uniform(-g, g); ramp = np.clip((np.arange(T) - t0) / 3.0, 0, 1)
         c = c + (new - lev) * ramp; lev = new
-    tt = np.linspace(0, 2 * np.pi, T)
+    tt = np.linspace(0, 2 * np.pi * BLOCKS, T)
     return c + np.sin(tt + rng.uniform(0, 2 * np.pi)) * rng.uniform(0.001, 0.01)
 
 
@@ -70,17 +76,18 @@ def generate_sequence(rng, cls, **over):
     aff = int(rng.integers(0, 2)); sign = float(rng.choice([1.0, -1.0])); A = 0.0
     if cls == "Constant":
         A = rng.uniform(*cfg["amp_const"])
-        u[:, aff] += sign * A * (1 + 0.05 * np.sin(np.linspace(0, 2 * np.pi, T) + rng.uniform(0, 6.3)))
+        u[:, aff] += sign * A * (1 + 0.05 * np.sin(np.linspace(0, 2 * np.pi * BLOCKS, T) + rng.uniform(0, 6.3)))
     elif cls == "Intermittent":
         A = rng.uniform(*cfg["amp_int"]); u[:, aff] += sign * _intermittent(rng, A)
     sigma = rng.uniform(*cfg["sigma"]); u += rng.normal(0, sigma, (T, 2))
     m = np.ones((T, 2))
-    for _ in range(rng.integers(cfg["blinks"][0], cfg["blinks"][1] + 1)):
+    for _ in range(_per_block(rng, *cfg["blinks"])):
         d = rng.integers(3, 11); s = rng.integers(0, T - d); m[s:s + d, :] = 0
     for e in range(2):
         m[rng.random(T) < rng.uniform(*cfg["drop"]), e] = 0
-        if rng.random() < cfg["burst_p"]:
-            d = rng.integers(5, 21); s = rng.integers(0, T - d); m[s:s + d, e] = 0
+        for _ in range(BLOCKS):
+            if rng.random() < cfg["burst_p"]:
+                d = rng.integers(5, 21); s = rng.integers(0, T - d); m[s:s + d, e] = 0
     u[m == 0] = 0.0
     return u.astype("float32"), m.astype("float32"), {"affected_eye": aff + 1, "sign": sign, "amplitude": A,
                                                      "sigma": sigma}

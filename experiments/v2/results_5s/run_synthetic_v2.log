@@ -1,0 +1,42 @@
+E1 CNN-BiLSTM 0 0.9423 53
+E1 CNN-BiLSTM 1 0.9556 48
+E1 CNN-BiLSTM 2 0.933 37
+E1 CNN-BiLSTM 3 0.9601 73
+E1 CNN-BiLSTM 4 0.9555 43
+E1 CNN-only 0 0.9556 100
+E1 CNN-only 1 0.9377 90
+E1 CNN-only 2 0.9466 83
+E1 CNN-only 3 0.9511 100
+E1 CNN-only 4 0.9465 95
+E1 BiLSTM-only 0 0.3888 17
+E1 BiLSTM-only 1 0.6556 29
+E1 BiLSTM-only 2 0.8017 68
+E1 BiLSTM-only 3 0.2382 22
+E1 BiLSTM-only 4 0.4554 27
+E1 CNN-Transformer 0 0.9734 47
+E1 CNN-Transformer 1 0.9734 52
+E1 CNN-Transformer 2 0.96 35
+E1 CNN-Transformer 3 0.9733 52
+E1 CNN-Transformer 4 0.9733 40
+E2 Single frame LogReg [0.26858083881410455, 0.0]
+E2 Single frame SVM [0.5709725859585215, 0.0]
+E2 Single frame RF [0.6042228219449008, 0.0053405894994328785]
+E2 Sequence mean/SD LogReg [0.6835880280119542, 0.0]
+E2 Sequence mean/SD SVM [0.9823021337882316, 0.0]
+E2 Sequence mean/SD RF [0.9822216296032911, 1.2412670766236366e-16]
+E2 Handcrafted temporal LogReg [0.7199875550024447, 0.0]
+E2 Handcrafted temporal SVM [0.9777530589543936, 1.2412670766236366e-16]
+E2 Handcrafted temporal RF [0.9822216296032911, 1.2412670766236366e-16]
+E3 Binocular index u1+u2 + joint mask [0.9449990310077524, 0.06444544392561226]
+E3 u1, u2 without masks [0.8935960409159046, 0.031410253623534765]
+E3 u1, u2 + masks (default) [0.949300773461552, 0.011296781106640032]
+E3 u1, u2 + masks + 1st/2nd differences [0.9317858338105334, 0.05170590152557152]
+E4 Nominal (fresh data) {'CNN-BiLSTM': 0.955, 'CNN-only': 0.966, 'BiLSTM-only': 0.509, 'CNN-Transformer': 0.974, 'Handcrafted temporal + RF': 0.989}
+E4 Jitter sigma 0.03 {'CNN-BiLSTM': 0.948, 'CNN-only': 0.965, 'BiLSTM-only': 0.505, 'CNN-Transformer': 0.969, 'Handcrafted temporal + RF': 0.171}
+E4 Jitter sigma 0.05 {'CNN-BiLSTM': 0.928, 'CNN-only': 0.949, 'BiLSTM-only': 0.502, 'CNN-Transformer': 0.766, 'Handcrafted temporal + RF': 0.167}
+E4 Jitter sigma 0.08 {'CNN-BiLSTM': 0.8, 'CNN-only': 0.781, 'BiLSTM-only': 0.494, 'CNN-Transformer': 0.485, 'Handcrafted temporal + RF': 0.167}
+E4 Missing frames (dropout 0.3) {'CNN-BiLSTM': 0.857, 'CNN-only': 0.865, 'BiLSTM-only': 0.489, 'CNN-Transformer': 0.853, 'Handcrafted temporal + RF': 0.99}
+E4 Large gaze shifts (+-0.3) {'CNN-BiLSTM': 0.915, 'CNN-only': 0.927, 'BiLSTM-only': 0.5, 'CNN-Transformer': 0.95, 'Handcrafted temporal + RF': 0.98}
+E4 Low amplitude (0.04-0.08) {'CNN-BiLSTM': 0.615, 'CNN-only': 0.569, 'BiLSTM-only': 0.315, 'CNN-Transformer': 0.579, 'Handcrafted temporal + RF': 0.662}
+E5 done
+DONE

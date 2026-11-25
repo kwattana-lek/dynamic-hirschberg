@@ -1,0 +1,44 @@
+E1 CNN-BiLSTM 0 0.8508 28
+E1 CNN-BiLSTM 1 0.9244 51
+WARNING:tensorflow:5 out of the last 17 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x707b8f7ec0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+E1 CNN-BiLSTM 2 0.8431 30
+WARNING:tensorflow:5 out of the last 17 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x707f450ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+E1 CNN-BiLSTM 3 0.7772 21
+E1 CNN-BiLSTM 4 0.9866 73
+E1 CNN-only 0 0.9777 71
+E1 CNN-only 1 0.9867 58
+E1 CNN-only 2 0.9778 72
+E1 CNN-only 3 0.9778 100
+E1 CNN-only 4 0.9867 74
+E1 BiLSTM-only 0 0.8079 41
+E1 BiLSTM-only 1 0.7427 22
+E1 BiLSTM-only 2 0.7965 36
+E1 BiLSTM-only 3 0.4025 30
+E1 BiLSTM-only 4 0.6568 30
+E1 CNN-Transformer 0 0.9822 40
+E1 CNN-Transformer 1 0.9822 45
+E1 CNN-Transformer 2 0.9911 33
+E1 CNN-Transformer 3 0.9822 41
+E1 CNN-Transformer 4 0.9778 27
+E2 Single frame LogReg [0.23616978525945492, 0.0]
+E2 Single frame SVM [0.5543622416109854, 0.0]
+E2 Single frame RF [0.5415489343403193, 0.010900895669319293]
+E2 Sequence mean/SD LogReg [0.6897851269855106, 0.0]
+E2 Sequence mean/SD SVM [0.9778777552713084, 0.0]
+E2 Sequence mean/SD RF [0.9866660740477355, 0.0]
+E2 Handcrafted temporal LogReg [0.728587319243604, 0.0]
+E2 Handcrafted temporal SVM [0.9777530589543936, 1.2412670766236366e-16]
+E2 Handcrafted temporal RF [0.9911100047626584, 0.0031428365539661607]
+E3 Binocular index u1+u2 + joint mask [0.921392577000051, 0.07032152667600589]
+E3 u1, u2 without masks [0.9084314022163573, 0.03903513154044004]
+E3 u1, u2 + masks (default) [0.8764228330648407, 0.08071522189872131]
+E3 u1, u2 + masks + 1st/2nd differences [0.8904195340157024, 0.06381463249765912]
+E4 Nominal (fresh data) {'CNN-BiLSTM': 0.864, 'CNN-only': 0.978, 'BiLSTM-only': 0.694, 'CNN-Transformer': 0.979, 'Handcrafted temporal + RF': 0.991}
+E4 Jitter sigma 0.03 {'CNN-BiLSTM': 0.863, 'CNN-only': 0.979, 'BiLSTM-only': 0.69, 'CNN-Transformer': 0.976, 'Handcrafted temporal + RF': 0.171}
+E4 Jitter sigma 0.05 {'CNN-BiLSTM': 0.852, 'CNN-only': 0.966, 'BiLSTM-only': 0.684, 'CNN-Transformer': 0.76, 'Handcrafted temporal + RF': 0.167}
+E4 Jitter sigma 0.08 {'CNN-BiLSTM': 0.773, 'CNN-only': 0.773, 'BiLSTM-only': 0.671, 'CNN-Transformer': 0.488, 'Handcrafted temporal + RF': 0.167}
+E4 Missing frames (dropout 0.3) {'CNN-BiLSTM': 0.652, 'CNN-only': 0.907, 'BiLSTM-only': 0.66, 'CNN-Transformer': 0.825, 'Handcrafted temporal + RF': 0.99}
+E4 Large gaze shifts (+-0.3) {'CNN-BiLSTM': 0.813, 'CNN-only': 0.924, 'BiLSTM-only': 0.658, 'CNN-Transformer': 0.931, 'Handcrafted temporal + RF': 0.989}
+E4 Low amplitude (0.04-0.08) {'CNN-BiLSTM': 0.438, 'CNN-only': 0.582, 'BiLSTM-only': 0.406, 'CNN-Transformer': 0.605, 'Handcrafted temporal + RF': 0.659}
+E5 done
+DONE

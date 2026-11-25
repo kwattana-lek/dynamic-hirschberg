@@ -10,7 +10,7 @@ def box(x, y, w, h, t, c, lw=1.1, ls="-"):
 def arr(x1, y1, x2, y2, ls="-"): ax.annotate("", (x2, y2), (x1, y1), arrowprops=dict(arrowstyle="->", lw=1.2, ls=ls))
 ax.text(0.1, 4.35, "Recommended: CNN-only temporal convolutional network (24,067 parameters)", fontsize=10, fontweight="bold")
 y0 = 2.9
-blocks = [("Input 150 × 4\nu1, u2, mask1, mask2", "#f2f2f2", 1.8), ("Conv1D 64, k = 5\nReLU", "#cfe2f3", 1.5),
+blocks = [("Input 300 × 4\nu1, u2, mask1, mask2", "#f2f2f2", 1.8), ("Conv1D 64, k = 5\nReLU", "#cfe2f3", 1.5),
           ("MaxPool 2\nDropout 0.3", "#cfe2f3", 1.4), ("Conv1D 64, k = 5\nReLU", "#b6d7a8", 1.5),
           ("Global average\npooling", "#b6d7a8", 1.5), ("Dense 32\nReLU", "#f4cccc", 1.3), ("Dense 3, softmax\nH / I / C", "#f4cccc", 1.6)]
 x = 0.1; xs = []
@@ -19,7 +19,7 @@ for t, c, w in blocks:
 for (x1, w1), (x2, _) in zip(xs[:-1], xs[1:]): arr(x1 + w1, y0 + 0.5, x2, y0 + 0.5)
 ax.text(0.1, 2.25, "Alternatives compared (same input and dense head; front end = first Conv1D, MaxPool and Dropout):", fontsize=9.5, style="italic")
 alts = [("CNN–BiLSTM (71,619)\nfront end → BiLSTM, 64 units/direction", "#fff2cc"),
-        ("CNN–Transformer (41,667)\nfront end → positional embedding + 4-head encoder + GAP", "#ead1dc"),
+        ("CNN–Transformer (46,467)\nfront end → positional embedding + 4-head encoder + GAP", "#ead1dc"),
         ("BiLSTM-only (39,555)\nBiLSTM, 64 units/direction, applied to the input", "#fce5cd")]
 for i, (t, c) in enumerate(alts):
     box(0.1 + i * 4.3, 0.55, 4.05, 1.15, t, c, ls="--")

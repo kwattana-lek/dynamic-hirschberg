@@ -214,7 +214,7 @@ def main():
     Uh, Mh, yh, _ = G.generate_set(7000, 200, drop=(0.0, 0.6), burst_p=0.8, blinks=(0, 6))
     ph = trained["CNN-BiLSTM"][0].predict(net_input(Uh, Mh), verbose=0).argmax(1); R["E5"] = []
     for q in [0.0, 0.5, 0.6, 0.7, 0.8, 0.9]:
-        for g in [10, 15, 30, 150]:
+        for g in [10, 15, 30, T]:
             acc = np.array([quality_gate(Mh[i, :, 0], Mh[i, :, 1], q, g)[0] for i in range(len(yh))])
             R["E5"].append({"min_joint": q, "max_gap": g, "accepted_pct": float(100 * acc.mean()),
                             "weighted_f1_accepted": float(f1_score(yh[acc], ph[acc], average="weighted")) if acc.any() else None,

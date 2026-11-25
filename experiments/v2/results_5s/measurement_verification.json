@@ -1,0 +1,11 @@
+{
+  "frames_tested": 30,
+  "mirror_exact_cases": 49,
+  "mirror_exact_max_abs_diff": 2.942091015256665e-15,
+  "mirror_redetect_pairs": 18,
+  "mirror_max_abs_diff_median": 0.0734896382307162,
+  "inject_cases": 360,
+  "inject_sign_correct_pct": 100.0,
+  "inject_abs_error_median": 0.0,
+  "inject_abs_error_max": 0.0
+}

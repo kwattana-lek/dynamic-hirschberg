@@ -1,0 +1,257 @@
+{
+  "design": {
+    "timeline_frames": 600,
+    "fps": 30,
+    "windows_frames": [
+      75,
+      150,
+      300
+    ],
+    "scenarios_gap_s": {
+      "frequent": [
+        1.0,
+        10.0
+      ],
+      "infrequent": [
+        5.0,
+        20.0
+      ]
+    },
+    "train_subjects": 1050,
+    "val_subjects": 225,
+    "test_subjects_per_scenario": 600,
+    "visible_criterion": ">=20 frames with envelope > 0.5",
+    "model": "CNN-only",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "results": {
+    "75": {
+      "seconds": 2.5,
+      "latency_ms": 0.09687610998904954,
+      "frequent": {
+        "weighted_f1": [
+          0.7373113105302209,
+          0.008398446217798075
+        ],
+        "recall": {
+          "Healthy": [
+            0.8489999999999999,
+            0.058991524815010514
+          ],
+          "Intermittent": [
+            0.46699999999999997,
+            0.05826662852782884
+          ],
+          "Constant": [
+            0.933,
+            0.012549900398011106
+          ]
+        },
+        "intermittent_visible_pct": 43.5,
+        "n_intermittent_visible": 87,
+        "n_intermittent_not_visible": 113,
+        "intermittent_recall_visible": [
+          0.760919540229885,
+          0.027442152612214554
+        ],
+        "intermittent_recall_not_visible": [
+          0.24070796460176994,
+          0.09742555004971953
+        ],
+        "intermittent_not_visible_called_healthy": [
+          0.7398230088495575,
+          0.08818529676710164
+        ]
+      },
+      "infrequent": {
+        "weighted_f1": [
+          0.661146162459544,
+          0.016723890127914177
+        ],
+        "recall": {
+          "Healthy": [
+            0.813,
+            0.07421253263431994
+          ],
+          "Intermittent": [
+            0.309,
+            0.056280547261020844
+          ],
+          "Constant": [
+            0.9280000000000002,
+            0.002738612787525833
+          ]
+        },
+        "intermittent_visible_pct": 23.0,
+        "n_intermittent_visible": 46,
+        "n_intermittent_not_visible": 154,
+        "intermittent_recall_visible": [
+          0.7347826086956522,
+          0.05190146254918837
+        ],
+        "intermittent_recall_not_visible": [
+          0.18181818181818182,
+          0.07230862808870159
+        ],
+        "intermittent_not_visible_called_healthy": [
+          0.8142857142857143,
+          0.0742648231454327
+        ]
+      }
+    },
+    "150": {
+      "seconds": 5.0,
+      "latency_ms": 0.1170391667013367,
+      "frequent": {
+        "weighted_f1": [
+          0.8558084426757034,
+          0.006738378065558896
+        ],
+        "recall": {
+          "Healthy": [
+            0.954,
+            0.0435028734683124
+          ],
+          "Intermittent": [
+            0.664,
+            0.03847076812334268
+          ],
+          "Constant": [
+            0.96,
+            0.014577379737113264
+          ]
+        },
+        "intermittent_visible_pct": 67.5,
+        "n_intermittent_visible": 135,
+        "n_intermittent_not_visible": 65,
+        "intermittent_recall_visible": [
+          0.9303703703703704,
+          0.03168777723882583
+        ],
+        "intermittent_recall_not_visible": [
+          0.11076923076923077,
+          0.06741200707755891
+        ],
+        "intermittent_not_visible_called_healthy": [
+          0.8461538461538461,
+          0.05217176910096361
+        ]
+      },
+      "infrequent": {
+        "weighted_f1": [
+          0.7428753470436045,
+          0.005268062712932147
+        ],
+        "recall": {
+          "Healthy": [
+            0.909,
+            0.05272570530585628
+          ],
+          "Intermittent": [
+            0.41600000000000004,
+            0.04852834223420371
+          ],
+          "Constant": [
+            0.9489999999999998,
+            0.012449899597988744
+          ]
+        },
+        "intermittent_visible_pct": 41.5,
+        "n_intermittent_visible": 83,
+        "n_intermittent_not_visible": 117,
+        "intermittent_recall_visible": [
+          0.908433734939759,
+          0.03866700370091858
+        ],
+        "intermittent_recall_not_visible": [
+          0.06666666666666667,
+          0.058719877050658696
+        ],
+        "intermittent_not_visible_called_healthy": [
+          0.923076923076923,
+          0.058906191248248835
+        ]
+      }
+    },
+    "300": {
+      "seconds": 10.0,
+      "latency_ms": 0.1433286132911841,
+      "frequent": {
+        "weighted_f1": [
+          0.9555201750132525,
+          0.0021363909050284473
+        ],
+        "recall": {
+          "Healthy": [
+            0.983,
+            0.011510864433221347
+          ],
+          "Intermittent": [
+            0.932,
+            0.0075828754440515275
+          ],
+          "Constant": [
+            0.951,
+            0.008215838362577499
+          ]
+        },
+        "intermittent_visible_pct": 96.5,
+        "n_intermittent_visible": 193,
+        "n_intermittent_not_visible": 7,
+        "intermittent_recall_visible": [
+          0.9658031088082902,
+          0.00785790201456122
+        ],
+        "intermittent_recall_not_visible": [
+          0.0,
+          0.0
+        ],
+        "intermittent_not_visible_called_healthy": [
+          1.0,
+          0.0
+        ]
+      },
+      "infrequent": {
+        "weighted_f1": [
+          0.8477735418382976,
+          0.002353121886573387
+        ],
+        "recall": {
+          "Healthy": [
+            0.9710000000000001,
+            0.010839741694339409
+          ],
+          "Intermittent": [
+            0.623,
+            0.013509256086106309
+          ],
+          "Constant": [
+            0.959,
+            0.005477225575051666
+          ]
+        },
+        "intermittent_visible_pct": 66.5,
+        "n_intermittent_visible": 133,
+        "n_intermittent_not_visible": 67,
+        "intermittent_recall_visible": [
+          0.9338345864661655,
+          0.01630036345013441
+        ],
+        "intermittent_recall_not_visible": [
+          0.005970149253731343,
+          0.013349659567162924
+        ],
+        "intermittent_not_visible_called_healthy": [
+          0.973134328358209,
+          0.019460305687172042
+        ]
+      }
+    }
+  }
+}

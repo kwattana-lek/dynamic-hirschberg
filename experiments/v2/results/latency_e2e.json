@@ -4,10 +4,10 @@
     580,
     326
   ],
-  "decode_ms_per_frame": 0.17440652833708253,
-  "mediapipe_ms_per_frame": 1.7947509823231182,
-  "reflex_measure_ms_per_frame": 0.22835131467824493,
-  "measurement_ms_per_frame_total": 2.1975088253384456,
-  "classifier_ms_per_window": 0.11589763666658351,
-  "end_to_end_ms_per_5s_window": 329.74222143743344
+  "decode_ms_per_frame": 0.17860965332753645,
+  "mediapipe_ms_per_frame": 1.8192095616541337,
+  "reflex_measure_ms_per_frame": 0.20907806513908628,
+  "measurement_ms_per_frame_total": 2.206897280120756,
+  "classifier_ms_per_window": 0.14565930333143723,
+  "end_to_end_ms_per_window": 662.2148433395582
 }

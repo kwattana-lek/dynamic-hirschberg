@@ -2,7 +2,7 @@
 Step 2 of the v2 real-video analysis: quality gate, then classification of accepted windows.
 
 Input: results/real_video/*_signal.csv from measure_videos.py; seed-0 models from run_synthetic_v2.py.
-Each clip is cut into non-overlapping 150-frame windows. A window is classified only if it passes the
+Each clip is cut into non-overlapping 300-frame (10-s) windows. A window is classified only if it passes the
 quality gate (src/dh_measure.quality_gate); otherwise the output is "Cannot assess" with the reason.
 For transparency, the ungated CNN-BiLSTM output is also stored for rejected windows (not reported as a result).
 """
@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.jo
 from dh_measure import quality_gate
 import run_synthetic_v2 as S   # for PosEmb and net_input
 
-RV = os.path.join(HERE, "results", "real_video"); T = 150
+RV = os.path.join(HERE, "results", "real_video"); T = S.T   # 300 frames = 10 s
 MIN_JOINT = float(os.environ.get("DH_MIN_JOINT", 0.7)); MAX_GAP = int(os.environ.get("DH_MAX_GAP", 15))
 models = {n: tf.keras.models.load_model(os.path.join(HERE, "results", "models", f"{n}_seed0.keras"),
                                         custom_objects={"PosEmb": S.PosEmb}) for n in S.ARCH}

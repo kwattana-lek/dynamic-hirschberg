@@ -5,11 +5,12 @@ Code and data for the manuscript:
 > Suwannarat K., Kurdthongmee W., Phetkaew T., Wattanapanich C., Abd Aziz A.Z., Kurdthongmee P.
 > *Dynamic Hirschberg: Camera-Based Temporal Sensing of Ocular Alignment Without Per-User Calibration.* Submitted to *Sensors* (MDPI), 2026.
 
-In every video frame, DH measures the **signed horizontal displacement between the pupil centre and the corneal reflex** of each eye. The displacement is divided by the iris diameter, so no per-user calibration is needed. Failed frames are recorded in explicit **validity masks** rather than set to zero. A **quality gate** outputs "cannot assess" when too little of a window is valid. Accepted 5-s windows are classified as Healthy, Intermittent or Constant deviation.
+In every video frame, DH measures the **signed horizontal displacement between the pupil centre and the corneal reflex** of each eye. The displacement is divided by the iris diameter, so no per-user calibration is needed. Failed frames are recorded in explicit **validity masks** rather than set to zero. A **quality gate** outputs "cannot assess" when too little of a window is valid. Accepted 10-s windows (300 frames at 30 frames/s) are classified as Healthy, Intermittent or Constant deviation by the recommended CNN-only network.
 
 ## Versions
 
 - **`v2` is the version used in the current manuscript.** It is in `src/dh_measure.py`, `src/generate_synthetic_v2.py` and `experiments/v2/`.
+  - The current results use **10-s windows**. The earlier 5-s results (models, predictions, figures, JSON) are archived in `experiments/v2/results_5s/`, with the 5-s generator (`generate_synthetic_v2_5s.py`) and data (`data/synthetic_v2/synthetic_v2_5s.npz`). The choice of 10 s comes from `window_length_v2.py`.
 - `v1` is kept for transparency. It is in `src/generate_synthetic_dataset.py`, `src/dh_video_inference.py`, `experiments/*.py` and `data/synthetic_dataset_robust/`.
   - It used an **unsigned** distance and encoded failed frames as zeros.
   - Its results are superseded.
@@ -17,9 +18,10 @@ In every video frame, DH measures the **signed horizontal displacement between t
 ### v2 quick start
 
 ```bash
-python src/generate_synthetic_v2.py                    # data/synthetic_v2/synthetic_v2.npz (1500 sequences)
+python src/generate_synthetic_v2.py                    # data/synthetic_v2/synthetic_v2.npz (1500 sequences of 300 frames)
 cd experiments/v2
-python run_synthetic_v2.py                             # Tables 3-6: models, baselines, ablation, robustness
+python run_synthetic_v2.py                             # Tables 3, 4, 6 and CNN-BiLSTM ablation (Table 5): models, baselines, robustness
+python ablation_cnn_only.py                            # Table 5: input ablation of the CNN-only network
 python make_figures_v2.py                              # Figures 2-5 and pooled per-class metrics
 export DH_VIDEO_DIR=/path/to/videos                    # Dreamstime clips (not redistributed): Normal/ and Strabismus/
 python verify_measurement.py                           # injected-reflex and mirror tests
@@ -28,6 +30,7 @@ DH_MIN_JOINT=0.7 DH_MAX_GAP=15 python classify_real_v2.py   # quality gate + cla
 python gate_eval_v2.py                                 # Table 7: selective classification, CNN-only and CNN-BiLSTM, 5 seeds
 python latency_e2e.py                                  # classifier and end-to-end processing time
 python window_length_v2.py                             # Table 8: observation-window length (2.5, 5, 10 s), CNN-only, 5 seeds
+python plot_fig1_v2.py                                 # Figure 1: workflow
 python plot_fig3_v2.py                                 # Figure 3
 ```
 

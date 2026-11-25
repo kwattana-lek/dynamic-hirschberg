@@ -1,0 +1,703 @@
+{
+  "data": {
+    "n": 1500,
+    "train": 1050,
+    "val": 225,
+    "test": 225,
+    "test_per_class": [
+      75,
+      75,
+      75
+    ],
+    "missing_frame_pct": 13.120222091674805
+  },
+  "env": {
+    "python": "3.11.18",
+    "tensorflow": "2.16.2",
+    "machine": "macOS-27.2-arm64-arm-64bit"
+  },
+  "E1": {
+    "CNN-BiLSTM": {
+      "params": 71619,
+      "latency_ms": 1.1540201399475336,
+      "accuracy": [
+        0.9493333333333334,
+        0.011155467020454347
+      ],
+      "macro_f1": [
+        0.949300773461552,
+        0.011296781106640005
+      ],
+      "weighted_f1": [
+        0.949300773461552,
+        0.011296781106640032
+      ],
+      "epochs": [
+        50.8,
+        13.754999091239519
+      ],
+      "confusion_pooled": [
+        [
+          361,
+          4,
+          10
+        ],
+        [
+          20,
+          351,
+          4
+        ],
+        [
+          4,
+          15,
+          356
+        ]
+      ],
+      "pooled_per_class": {
+        "Healthy": {
+          "precision": 0.9376623376623376,
+          "recall": 0.9626666666666667,
+          "f1": 0.95,
+          "support": 375
+        },
+        "Intermittent": {
+          "precision": 0.9486486486486486,
+          "recall": 0.936,
+          "f1": 0.9422818791946309,
+          "support": 375
+        },
+        "Constant": {
+          "precision": 0.9621621621621622,
+          "recall": 0.9493333333333334,
+          "f1": 0.9557046979865772,
+          "support": 375
+        }
+      }
+    },
+    "CNN-only": {
+      "params": 24067,
+      "latency_ms": 0.11793388664955273,
+      "accuracy": [
+        0.9475555555555555,
+        0.006592176432973924
+      ],
+      "macro_f1": [
+        0.9475098386440337,
+        0.006647794303945316
+      ],
+      "weighted_f1": [
+        0.9475098386440338,
+        0.006647794303945286
+      ],
+      "epochs": [
+        93.6,
+        7.231873892705818
+      ],
+      "confusion_pooled": [
+        [
+          361,
+          3,
+          11
+        ],
+        [
+          17,
+          347,
+          11
+        ],
+        [
+          5,
+          12,
+          358
+        ]
+      ]
+    },
+    "BiLSTM-only": {
+      "params": 39555,
+      "latency_ms": 2.103245833325976,
+      "accuracy": [
+        0.5688888888888889,
+        0.18086213288334047
+      ],
+      "macro_f1": [
+        0.5079122566917504,
+        0.2223863780635456
+      ],
+      "weighted_f1": [
+        0.5079122566917504,
+        0.22238637806354564
+      ],
+      "epochs": [
+        32.6,
+        20.329781110479278
+      ],
+      "confusion_pooled": [
+        [
+          243,
+          92,
+          40
+        ],
+        [
+          130,
+          150,
+          95
+        ],
+        [
+          39,
+          89,
+          247
+        ]
+      ]
+    },
+    "CNN-Transformer": {
+      "params": 41667,
+      "latency_ms": 0.24099638996024925,
+      "accuracy": [
+        0.9706666666666667,
+        0.005962847939999478
+      ],
+      "macro_f1": [
+        0.9706964479561526,
+        0.006003611487926002
+      ],
+      "weighted_f1": [
+        0.9706964479561526,
+        0.0060036114879260275
+      ],
+      "epochs": [
+        45.2,
+        7.52994023880668
+      ],
+      "confusion_pooled": [
+        [
+          370,
+          1,
+          4
+        ],
+        [
+          7,
+          361,
+          7
+        ],
+        [
+          10,
+          4,
+          361
+        ]
+      ]
+    }
+  },
+  "E2": {
+    "Single frame + LogReg": {
+      "accuracy": [
+        0.32,
+        0.0
+      ],
+      "macro_f1": [
+        0.2685808388141045,
+        0.0
+      ],
+      "weighted_f1": [
+        0.26858083881410455,
+        0.0
+      ],
+      "recall_intermittent_seed0": 0.4666666666666667
+    },
+    "Single frame + SVM": {
+      "accuracy": [
+        0.64,
+        0.0
+      ],
+      "macro_f1": [
+        0.5709725859585215,
+        0.0
+      ],
+      "weighted_f1": [
+        0.5709725859585215,
+        0.0
+      ],
+      "recall_intermittent_seed0": 0.10666666666666667
+    },
+    "Single frame + RF": {
+      "accuracy": [
+        0.608,
+        0.007302967433402202
+      ],
+      "macro_f1": [
+        0.6042228219449008,
+        0.0053405894994328785
+      ],
+      "weighted_f1": [
+        0.6042228219449008,
+        0.0053405894994328785
+      ],
+      "recall_intermittent_seed0": 0.36
+    },
+    "Sequence mean/SD + LogReg": {
+      "accuracy": [
+        0.6844444444444444,
+        0.0
+      ],
+      "macro_f1": [
+        0.6835880280119541,
+        0.0
+      ],
+      "weighted_f1": [
+        0.6835880280119542,
+        0.0
+      ],
+      "recall_intermittent_seed0": 0.9866666666666667
+    },
+    "Sequence mean/SD + SVM": {
+      "accuracy": [
+        0.9822222222222223,
+        1.2412670766236366e-16
+      ],
+      "macro_f1": [
+        0.9823021337882315,
+        0.0
+      ],
+      "weighted_f1": [
+        0.9823021337882316,
+        0.0
+      ],
+      "recall_intermittent_seed0": 0.9866666666666667
+    },
+    "Sequence mean/SD + RF": {
+      "accuracy": [
+        0.9822222222222223,
+        1.2412670766236366e-16
+      ],
+      "macro_f1": [
+        0.982221629603291,
+        0.0
+      ],
+      "weighted_f1": [
+        0.9822216296032911,
+        1.2412670766236366e-16
+      ],
+      "recall_intermittent_seed0": 0.9866666666666667
+    },
+    "Handcrafted temporal + LogReg": {
+      "accuracy": [
+        0.72,
+        0.0
+      ],
+      "macro_f1": [
+        0.7199875550024446,
+        0.0
+      ],
+      "weighted_f1": [
+        0.7199875550024447,
+        0.0
+      ],
+      "recall_intermittent_seed0": 1.0
+    },
+    "Handcrafted temporal + SVM": {
+      "accuracy": [
+        0.9777777777777776,
+        1.2412670766236366e-16
+      ],
+      "macro_f1": [
+        0.9777530589543938,
+        0.0
+      ],
+      "weighted_f1": [
+        0.9777530589543936,
+        1.2412670766236366e-16
+      ],
+      "recall_intermittent_seed0": 1.0
+    },
+    "Handcrafted temporal + RF": {
+      "accuracy": [
+        0.9822222222222223,
+        1.2412670766236366e-16
+      ],
+      "macro_f1": [
+        0.982221629603291,
+        0.0
+      ],
+      "weighted_f1": [
+        0.9822216296032911,
+        1.2412670766236366e-16
+      ],
+      "recall_intermittent_seed0": 0.9866666666666667
+    }
+  },
+  "E3": {
+    "Binocular index u1+u2 + joint mask": {
+      "channels": 2,
+      "accuracy": [
+        0.9448888888888888,
+        0.06475785857263643
+      ],
+      "weighted_f1": [
+        0.9449990310077524,
+        0.06444544392561226
+      ]
+    },
+    "u1, u2 without masks": {
+      "channels": 2,
+      "accuracy": [
+        0.8942222222222223,
+        0.030695638488590228
+      ],
+      "weighted_f1": [
+        0.8935960409159046,
+        0.031410253623534765
+      ]
+    },
+    "u1, u2 + masks (default)": {
+      "channels": 4,
+      "accuracy": [
+        0.9493333333333334,
+        0.011155467020454347
+      ],
+      "weighted_f1": [
+        0.949300773461552,
+        0.011296781106640032
+      ]
+    },
+    "u1, u2 + masks + 1st/2nd differences": {
+      "channels": 8,
+      "accuracy": [
+        0.9324444444444444,
+        0.05100472018824808
+      ],
+      "weighted_f1": [
+        0.9317858338105334,
+        0.05170590152557152
+      ]
+    }
+  },
+  "E4": {
+    "Nominal (fresh data)": {
+      "CNN-BiLSTM": [
+        0.9547856608281031,
+        0.017110986602032207
+      ],
+      "CNN-only": [
+        0.9660752862948191,
+        0.008701677906847952
+      ],
+      "BiLSTM-only": [
+        0.5085510204115798,
+        0.2286861515175968
+      ],
+      "CNN-Transformer": [
+        0.9740830578775842,
+        0.008922716051429302
+      ],
+      "Handcrafted temporal + RF": [
+        0.9885514805417308,
+        0.0037158910175578205
+      ]
+    },
+    "Jitter sigma 0.03": {
+      "CNN-BiLSTM": [
+        0.9480693709734398,
+        0.01921048124931924
+      ],
+      "CNN-only": [
+        0.9650070206563143,
+        0.008226310826445449
+      ],
+      "BiLSTM-only": [
+        0.504701390032596,
+        0.22470517146638555
+      ],
+      "CNN-Transformer": [
+        0.9691928439056926,
+        0.009217797195013675
+      ],
+      "Handcrafted temporal + RF": [
+        0.17057164072138417,
+        0.0056937867270886134
+      ]
+    },
+    "Jitter sigma 0.05": {
+      "CNN-BiLSTM": [
+        0.9279166324506787,
+        0.02722268846310592
+      ],
+      "CNN-only": [
+        0.9486854977297361,
+        0.010181632045044063
+      ],
+      "BiLSTM-only": [
+        0.502238756402748,
+        0.22232868855545956
+      ],
+      "CNN-Transformer": [
+        0.7656278752556831,
+        0.03489059953734299
+      ],
+      "Handcrafted temporal + RF": [
+        0.16666666666666669,
+        2.832791573980247e-17
+      ]
+    },
+    "Jitter sigma 0.08": {
+      "CNN-BiLSTM": [
+        0.7996605816821546,
+        0.0912278791819228
+      ],
+      "CNN-only": [
+        0.780610726220746,
+        0.04463154409513686
+      ],
+      "BiLSTM-only": [
+        0.49406722156442145,
+        0.21523413960428656
+      ],
+      "CNN-Transformer": [
+        0.48516910394710516,
+        0.020333515041005064
+      ],
+      "Handcrafted temporal + RF": [
+        0.16666666666666669,
+        2.832791573980247e-17
+      ]
+    },
+    "Missing frames (dropout 0.3)": {
+      "CNN-BiLSTM": [
+        0.8570938760755087,
+        0.07046608380390092
+      ],
+      "CNN-only": [
+        0.8654165127872113,
+        0.02453742262424462
+      ],
+      "BiLSTM-only": [
+        0.4886676821991635,
+        0.20942468456809432
+      ],
+      "CNN-Transformer": [
+        0.8525922982282776,
+        0.034660244962207425
+      ],
+      "Handcrafted temporal + RF": [
+        0.9896058704408235,
+        0.003493971520406884
+      ]
+    },
+    "Large gaze shifts (+-0.3)": {
+      "CNN-BiLSTM": [
+        0.9146512953631648,
+        0.035673769032083864
+      ],
+      "CNN-only": [
+        0.9271027070004315,
+        0.01835174920207884
+      ],
+      "BiLSTM-only": [
+        0.4995463984770431,
+        0.199191147746659
+      ],
+      "CNN-Transformer": [
+        0.9500729939005109,
+        0.021149555769200242
+      ],
+      "Handcrafted temporal + RF": [
+        0.9795929050992902,
+        0.005960767579682908
+      ]
+    },
+    "Low amplitude (0.04-0.08)": {
+      "CNN-BiLSTM": [
+        0.6153818957454866,
+        0.03687742676501748
+      ],
+      "CNN-only": [
+        0.5692519199442188,
+        0.036038585995688766
+      ],
+      "BiLSTM-only": [
+        0.3154859763981462,
+        0.12724783963669786
+      ],
+      "CNN-Transformer": [
+        0.5789708481925531,
+        0.05115409542431058
+      ],
+      "Handcrafted temporal + RF": [
+        0.661745877770906,
+        0.021990690791421453
+      ]
+    }
+  },
+  "E5": [
+    {
+      "min_joint": 0.0,
+      "max_gap": 10,
+      "accepted_pct": 5.833333333333333,
+      "weighted_f1_accepted": 0.9413632119514472,
+      "weighted_f1_rejected": 0.8663476794008798
+    },
+    {
+      "min_joint": 0.0,
+      "max_gap": 15,
+      "accepted_pct": 28.499999999999996,
+      "weighted_f1_accepted": 0.9097144570828781,
+      "weighted_f1_rejected": 0.8549477087973915
+    },
+    {
+      "min_joint": 0.0,
+      "max_gap": 30,
+      "accepted_pct": 94.0,
+      "weighted_f1_accepted": 0.871465584585725,
+      "weighted_f1_rejected": 0.8611111111111112
+    },
+    {
+      "min_joint": 0.0,
+      "max_gap": 150,
+      "accepted_pct": 100.0,
+      "weighted_f1_accepted": 0.8706707773086619,
+      "weighted_f1_rejected": null
+    },
+    {
+      "min_joint": 0.5,
+      "max_gap": 10,
+      "accepted_pct": 3.5000000000000004,
+      "weighted_f1_accepted": 0.9022881880024737,
+      "weighted_f1_rejected": 0.8695405557321825
+    },
+    {
+      "min_joint": 0.5,
+      "max_gap": 15,
+      "accepted_pct": 10.5,
+      "weighted_f1_accepted": 0.9522395796517519,
+      "weighted_f1_rejected": 0.860945289203374
+    },
+    {
+      "min_joint": 0.5,
+      "max_gap": 30,
+      "accepted_pct": 19.333333333333332,
+      "weighted_f1_accepted": 0.947865353037767,
+      "weighted_f1_rejected": 0.8515769944341373
+    },
+    {
+      "min_joint": 0.5,
+      "max_gap": 150,
+      "accepted_pct": 19.5,
+      "weighted_f1_accepted": 0.939731895388004,
+      "weighted_f1_rejected": 0.8533257696671347
+    },
+    {
+      "min_joint": 0.6,
+      "max_gap": 10,
+      "accepted_pct": 1.8333333333333333,
+      "weighted_f1_accepted": 0.906093906093906,
+      "weighted_f1_rejected": 0.8700194931773878
+    },
+    {
+      "min_joint": 0.6,
+      "max_gap": 15,
+      "accepted_pct": 5.666666666666666,
+      "weighted_f1_accepted": 0.9705882352941176,
+      "weighted_f1_rejected": 0.8644945645174177
+    },
+    {
+      "min_joint": 0.6,
+      "max_gap": 30,
+      "accepted_pct": 8.333333333333332,
+      "weighted_f1_accepted": 0.9594318243426403,
+      "weighted_f1_rejected": 0.8624652030390755
+    },
+    {
+      "min_joint": 0.6,
+      "max_gap": 150,
+      "accepted_pct": 8.333333333333332,
+      "weighted_f1_accepted": 0.9594318243426403,
+      "weighted_f1_rejected": 0.8624652030390755
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 10,
+      "accepted_pct": 0.6666666666666667,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8698519690206172
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 15,
+      "accepted_pct": 1.6666666666666667,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8685316178964958
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 30,
+      "accepted_pct": 2.166666666666667,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8678276237165073
+    },
+    {
+      "min_joint": 0.7,
+      "max_gap": 150,
+      "accepted_pct": 2.166666666666667,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8678276237165073
+    },
+    {
+      "min_joint": 0.8,
+      "max_gap": 10,
+      "accepted_pct": 0.33333333333333337,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8702562786301752
+    },
+    {
+      "min_joint": 0.8,
+      "max_gap": 15,
+      "accepted_pct": 0.33333333333333337,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8702562786301752
+    },
+    {
+      "min_joint": 0.8,
+      "max_gap": 30,
+      "accepted_pct": 0.33333333333333337,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8702562786301752
+    },
+    {
+      "min_joint": 0.8,
+      "max_gap": 150,
+      "accepted_pct": 0.33333333333333337,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8702562786301752
+    },
+    {
+      "min_joint": 0.9,
+      "max_gap": 10,
+      "accepted_pct": 0.16666666666666669,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8704701142223514
+    },
+    {
+      "min_joint": 0.9,
+      "max_gap": 15,
+      "accepted_pct": 0.16666666666666669,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8704701142223514
+    },
+    {
+      "min_joint": 0.9,
+      "max_gap": 30,
+      "accepted_pct": 0.16666666666666669,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8704701142223514
+    },
+    {
+      "min_joint": 0.9,
+      "max_gap": 150,
+      "accepted_pct": 0.16666666666666669,
+      "weighted_f1_accepted": 1.0,
+      "weighted_f1_rejected": 0.8704701142223514
+    }
+  ],
+  "tsne": {
+    "n": 225,
+    "perplexity": 30,
+    "seed": 42
+  }
+}
