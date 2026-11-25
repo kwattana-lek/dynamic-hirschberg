@@ -23,10 +23,11 @@ python run_synthetic_v2.py                             # Tables 3-6: models, bas
 python make_figures_v2.py                              # Figures 2-5 and pooled per-class metrics
 export DH_VIDEO_DIR=/path/to/videos                    # Dreamstime clips (not redistributed): Normal/ and Strabismus/
 python verify_measurement.py                           # injected-reflex and mirror tests
-python measure_videos.py                               # Tables 2 and 8: per-frame measurement, jitter estimate, rescaling test
+python measure_videos.py                               # Tables 2 and 9: per-frame measurement, jitter estimate, rescaling test
 DH_MIN_JOINT=0.7 DH_MAX_GAP=15 python classify_real_v2.py   # quality gate + classification of real windows
 python gate_eval_v2.py                                 # Table 7: selective classification, CNN-only and CNN-BiLSTM, 5 seeds
 python latency_e2e.py                                  # classifier and end-to-end processing time
+python window_length_v2.py                             # Table 8: observation-window length (2.5, 5, 10 s), CNN-only, 5 seeds
 python plot_fig3_v2.py                                 # Figure 3
 ```
 
